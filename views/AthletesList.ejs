@@ -1,0 +1,132 @@
+
+
+<!-- <table>
+    <thead>
+        <th>Full Name</th>
+        <th>Phone Number</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Photo</th>
+        <th>No of Remain Days</th>
+    </thead>
+<%  if(list.length){ %>
+    <% list.forEach((lis)=>{%>
+     <% const start = new Date(lis.Start)%>
+     <% const end = new Date(lis.End)%>
+     <% const d2 = new Date()%>
+     <% const dateDiff = end.getTime()-d2.getTime()%>
+     <% const datediff =Math.round(dateDiff/(1000*60*60*24))%>
+
+    <tr>
+        <td><%= lis.Name%></td>
+        <td><%= lis.phone%></td>
+        <td><%= start.getFullYear()%> <%= start.getMonth()%> <%= start.getDate()%></td>
+        <td><%= end.getFullYear()%> <%= end.getMonth()%> <%= end.getDate()%></td>
+        <td><img src='<%= lis.image %>' alt="" srcset=""/></td>
+        <td><%= datediff %></td>
+    </tr>
+  
+        <%})%>
+    <% } %>
+</table> -->
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+      <!-- Style CSS -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Demo CSS (No need to include it into your project) -->
+      <link rel="stylesheet" href="css/demo.css">
+      <!-- Bootstrap 5 CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+<!-- Data Table CSS -->
+<link rel='stylesheet' href='https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css'>
+<!-- Font Awesome CSS -->
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css'>
+<link rel="stylesheet" href="css/main.css">
+   </head>
+   <body style="background-image: url('gym.jpg');">
+      <header>
+        <h1 class="item">Tiger Sport Club</h1>
+        <nav class="item">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/reg">Registration</a></li>
+                <li><a href="/list">Customer List</a></li>
+                <li><a href="/pass">Profile</a></li>
+                <li id="logout">Logout</li>
+            </ul>
+        </nav>
+      </header>
+      <!--$%adsense%$-->
+      <main class="cd__main">
+         <!-- Start DEMO HTML (Use the following code into your project)-->
+         <table  id="example" class="table table-striped" style="width:100%" >
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Phone Number</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Photo</th>
+                <th>No of Remain Days</th>
+                <th >Operation</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <%  if(list.length){ %>
+                <% list.forEach((lis)=>{%>
+                 <% const start = new Date(lis.Start)%>
+                 <% const end = new Date(lis.End)%>
+                 <% const d2 = new Date()%>
+                 <% const dateDiff = end.getTime()-d2.getTime()%>
+                 <% const datediff =Math.round(dateDiff/(1000*60*60*24))%>
+            
+                <tr>
+                    <td><%= lis.Name%></td>
+                    <td><%= lis.phone%></td>
+                    <td><%= start.getFullYear()%> <%= start.getMonth()%> <%= start.getDate()%></td>
+                    <td><%= end.getFullYear()%> <%= end.getMonth()%> <%= end.getDate()%></td>
+                    <td><img src='<%= lis.image %>' alt="" srcset=""/></td>
+                    <td><%= datediff %></td>
+                    <td><a href="/del/<%= lis._id %>" ><button>Remove</button></a></td>
+                </tr>
+              
+                    <%})%>
+                <% } %>
+        </tbody>
+        <tfoot>
+            <tr>
+        <th>Full Name</th>
+        <th>Phone Number</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Photo</th>
+        <th>No of Remain Days</th>
+            </tr>
+        </tfoot>
+    </table>
+         <!-- END EDMO HTML (Happy Coding!)-->
+      </main>
+      <footer class="cd__credit">Author: Yolanda Goex - Distributed By: <a title="Free web design code & scripts" href="https://www.codehim.com?source=demo-page" target="_blank">CodeHim</a></footer>
+      <!-- jQuery -->
+<script src='https://code.jquery.com/jquery-3.7.0.js'></script>
+<!-- Data Table JS -->
+<script src='https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js'></script>
+<script src='https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js'></script>
+<script src='https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap5.min.js'></script>
+      <!-- Script JS -->
+      <script src="javascript/script.js"></script>
+      <script>
+        const logout = document.getElementById('logout')
+
+logout.addEventListener('click',()=>{
+  fetch('http://localhost:9000/logout',{method:'POST'})
+})
+      </script>
+      <!--$%analytics%$-->
+   </body>
+</html>

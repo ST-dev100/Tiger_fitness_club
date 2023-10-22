@@ -1,0 +1,32 @@
+.wrapper {
+  margin-top: 5vh;
+}
+
+.dataTables_filter {
+  float: right;
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: #ccffff;
+}
+
+@media only screen and (min-width: 768px) {
+  .table {
+    table-layout: fixed;
+    max-width: 100% !important;
+  }
+}
+
+thead {
+  background: #ddd;
+}
+
+.table td:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.highlight {
+  background: #ffff99;
+}
+

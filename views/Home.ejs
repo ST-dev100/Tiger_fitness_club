@@ -1,0 +1,17 @@
+<%- include('includes/head.ejs') %>
+    <div id="root">
+       <h1>
+        Home
+       </h1>
+       
+    </div>
+    <script>
+
+const logout = document.getElementById('logout')
+
+   logout.addEventListener('click',()=>{
+     fetch('http://localhost:9000/logout',{method:'POST'})
+   })
+    </script>
+</body>
+</html>
